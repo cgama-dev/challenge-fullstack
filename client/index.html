@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <title>Challenge FullStack</title>
+</head>
+
+<body ng-app="app-challenge">
+    <div class="content" ng-controller="appChanllengeController as vm">
+        <h1>Challenge RoutEasy :: Dev :: <span ng-bind="nome"></span></h1>
+
+        <div id="main">
+            <div id="sidebar">
+                <div class="alert alert-danger text-center" role="alert" ng-show="apiError">
+                    <b>API Error : </b>
+                    <span ng-bind="apiStatus"></span>
+                </div>
+                <form name="resForm" class="form-horizontal" novalidate ng-submit="send()">
+                    <div class="form-group">
+                        <div class="col-xs-10">
+                            <input name="resClient" placeholder="Nome do Cliente" type="text" class="form-control"
+                                ng-model="vm.delivery.client" required />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-xs-10">
+                            <input name="deliveryWeight" placeholder="Peso da Entrega" type="number"
+                                class="form-control" ng-model="vm.delivery.delivery_weight" required />
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <input id="pac-input" name="place" type="text" placeholder="Endereço Cliente"
+                            class="form-control" ng-model="vm.searchPlace" required autofocus />
+                        <span class="input-group-btn">
+                            <button type="button" class="btn btn-primary" ng-click="vm.search()">Pesquisar</button>
+                        </span>
+                    </div>
+                    <br>
+                    <div id="coordinates">
+                        <div class="form-group">
+                            <div class="col-xs-10">
+                                <input name="resLat" type="text" placeholder="Latitude" ng-model="vm.delivery.lat"
+                                    required ng-disabled="true" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-xs-10">
+                                <input name="resLng" type="text" placeholder="Longitude" ng-model="vm.delivery.lng"
+                                    required ng-disabled="true" />
+                            </div>
+                        </div>
+                    </div>
+                    <br />
+                    <div class="form-group">
+                        <div>
+                            <button class="btn btn-success" ng-click="vm.saveClient()"
+                                ng-disabled=" resForm.$invalid">CADASTRAR
+                                CLIENTE
+                            </button>
+                        </div>
+                        <BR>
+                        <div>
+                            <button class="btn btn-success"> RESETAR CLIENTE</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div id="map"></div>
+        </div>
+    </div>
+
+
+    <script type="text/javascript"
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCj4r0JLJzUU7YvZzCmhGXCEgemQPQiCxM&libraries=places"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.8/angular.min.js"></script>
+    <script src="app.js"></script>
+    <script src="service.js"></script>
+</body>
+
+</html>

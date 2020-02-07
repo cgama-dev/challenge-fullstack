@@ -1,0 +1,32 @@
+h3 img {
+    max-height: 50px;
+}
+#main{
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+    margin: 1rem;
+}
+#sidebar{
+    width: 25%;
+}
+
+#map { 
+    height: 35rem;
+    margin: 20px 0;
+    border-radius: 5px;
+    border: 1px solid silver;
+    width: 75%;
+}
+
+#coordinates{
+    display: flex;
+}
+
+.form-group, button{
+    width: 90%;
+}
+.form-group, .input-group,  input{
+    width: 90%;
+}
+
